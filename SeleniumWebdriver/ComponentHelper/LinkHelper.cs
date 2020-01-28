@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
-using SeleniumWebdriver.Settings;
 
 namespace SeleniumWebdriver.ComponentHelper
 {
-    public class NavigationHelper
+    public class LinkHelper
     {
-        public static void NavigateToUrl(string Url) 
+        private static IWebElement element;
+
+        public static void ClickLink(By Locator)
         {
-            ObjectRepository.Driver.Navigate().GoToUrl(Url);
+            element = GenericHelper.GetElement(Locator);
+            element.Click();
         }
     }
 }

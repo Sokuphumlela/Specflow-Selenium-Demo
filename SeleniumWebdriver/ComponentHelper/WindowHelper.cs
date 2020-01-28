@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OpenQA.Selenium;
 using SeleniumWebdriver.Settings;
 
 namespace SeleniumWebdriver.ComponentHelper
 {
-    public class NavigationHelper
+    public class WindowHelper
     {
-        public static void NavigateToUrl(string Url) 
+        public static string GetTitle()
         {
-            ObjectRepository.Driver.Navigate().GoToUrl(Url);
+            return ObjectRepository.Driver.Title;
         }
     }
 }
