@@ -7,19 +7,25 @@ using OpenQA.Selenium;
 
 namespace SeleniumWebdriver.ComponentHelper
 {
-    public class TextBoxHelper
+    public class CheckBoxHelper
     {
         private static IWebElement element;
-
-        public static void TypeInTextBox(By locator, string text)
+        public void CheckedCheckBox(By locator) 
         {
             element = GenericHelper.GetElement(locator);
-            element.SendKeys(text);
+            element.Click();
         }
-        public static void ClearTextBox(By locator)
+
+        public static bool IsCheckBoxChecked(By locator)
         {
             element = GenericHelper.GetElement(locator);
-            element.Clear();
+            string flag = element.GetAttribute("checked");
+
+            if (flag == null)
+                return false;
+            else
+                return flag.Equals("true") || flag.Equals("checked");
+
         }
     }
 }

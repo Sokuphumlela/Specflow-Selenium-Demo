@@ -8,26 +8,23 @@ using OpenQA.Selenium;
 using SeleniumWebdriver.ComponentHelper;
 using SeleniumWebdriver.Settings;
 
-namespace SeleniumWebdriver.TestScript.TextBox
+namespace SeleniumWebdriver.TestScript.Button
 {
     [TestClass]
-    public class TestTextBox
+    public static class HandleButton
     {
         [TestMethod]
-        public void TextBox()
+        public static void TestButton() 
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
-            //LinkHelper.ClickLink(By.LinkText(""));
-            //IWebElement ele = ObjectRepository.Driver.FindElement(By.Id("email"));
-            //ele.SendKeys(ObjectRepository.Config.GetUsername());
-            //ele = ObjectRepository.Driver.FindElement(By.Id("passwd"));
-            //ele.SendKeys(ObjectRepository.Config.GetPassword());
-            //ele = ObjectRepository.Driver.FindElement(By.Id("email"));
-            //ele.Clear();
+            LinkHelper.ClickLink(By.LinkText("lost_password form-group"));
             TextBoxHelper.TypeInTextBox(By.Id("email"), ObjectRepository.Config.GetUsername());
             TextBoxHelper.TypeInTextBox(By.Id("passwd"), ObjectRepository.Config.GetPassword());
-            TextBoxHelper.ClearTextBox(By.Id("email"));
+            //IWebElement element = ObjectRepository.Driver.FindElement(By.Id("SubmitLogin"));
+            //element.Click();
+            Console.WriteLine("Enabled : {0}", ButtonHelper.IsButtonEnable(By.Id("SubmitLogin")));
+            Console.WriteLine("Button Text : {0}", ButtonHelper.GetButtonText(By.Id("SubmitLogin")));
+            ButtonHelper.ClickButton(By.Id("SubmitLogin"));
         }
-
     }
 }

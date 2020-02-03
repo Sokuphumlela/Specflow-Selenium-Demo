@@ -8,26 +8,24 @@ using OpenQA.Selenium;
 using SeleniumWebdriver.ComponentHelper;
 using SeleniumWebdriver.Settings;
 
-namespace SeleniumWebdriver.TestScript.TextBox
+namespace SeleniumWebdriver.TestScript.CheckBox
 {
     [TestClass]
-    public class TestTextBox
+    public class TestCheckBox
     {
         [TestMethod]
-        public void TextBox()
+        public void TestBox()
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
-            //LinkHelper.ClickLink(By.LinkText(""));
-            //IWebElement ele = ObjectRepository.Driver.FindElement(By.Id("email"));
-            //ele.SendKeys(ObjectRepository.Config.GetUsername());
-            //ele = ObjectRepository.Driver.FindElement(By.Id("passwd"));
-            //ele.SendKeys(ObjectRepository.Config.GetPassword());
-            //ele = ObjectRepository.Driver.FindElement(By.Id("email"));
-            //ele.Clear();
             TextBoxHelper.TypeInTextBox(By.Id("email"), ObjectRepository.Config.GetUsername());
             TextBoxHelper.TypeInTextBox(By.Id("passwd"), ObjectRepository.Config.GetPassword());
             TextBoxHelper.ClearTextBox(By.Id("email"));
+              //Check box element
+            //IWebElement ele = ObjectRepository.Driver.FindElement(By.Id("id_gender2"));
+            //ele.Click();
+            //Console.WriteLine(CheckBoxHelper.IsCheckBoxChecked(By.Id("id_gender2")));
+            //CheckBoxHelper.CheckedCheckBox(By.Id("id_gender2"));
+            //Console.WriteLine(CheckBoxHelper.IsCheckBoxChecked(By.Id("id_gender2")));
         }
-
     }
 }

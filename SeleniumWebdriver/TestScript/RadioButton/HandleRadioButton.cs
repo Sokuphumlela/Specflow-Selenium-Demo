@@ -8,19 +8,17 @@ using OpenQA.Selenium;
 using SeleniumWebdriver.ComponentHelper;
 using SeleniumWebdriver.Settings;
 
-namespace SeleniumWebdriver.TestScript.HyperLink
+namespace SeleniumWebdriver.TestScript.RadioButton
 {
     [TestClass]
-    public class TestHyperLink
+    public class HandleRadioButton
     {
         [TestMethod]
-        public void ClickLink()
+        public void TestRadio()
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
-            IWebElement pelement = ObjectRepository.Driver.FindElement(By.LinkText("Forgot your password?"));
-            pelement.Click();
-            //LinkHelper.ClickLink(By.LinkText("lost_password form-group"));
-            //LinkHelper.ClickLink(By.PartialLinkText("File"));
+            TextBoxHelper.TypeInTextBox(By.Id("email_create"), ObjectRepository.Config.GetUsername());
+            ButtonHelper.ClickButton(By.Id("SubmitCreate"));
         }
     }
 }
