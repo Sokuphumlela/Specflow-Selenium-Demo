@@ -17,6 +17,7 @@ namespace SeleniumWebdriver.TestScript.Button
         public static void TestButton() 
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
+            LinkHelper.ClickLink(By.ClassName("login"));
             LinkHelper.ClickLink(By.LinkText("lost_password form-group"));
             TextBoxHelper.TypeInTextBox(By.Id("email"), ObjectRepository.Config.GetUsername());
             TextBoxHelper.TypeInTextBox(By.Id("passwd"), ObjectRepository.Config.GetPassword());

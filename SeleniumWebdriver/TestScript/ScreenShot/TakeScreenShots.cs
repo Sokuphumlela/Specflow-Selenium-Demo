@@ -5,25 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.Extensions;
 using SeleniumWebdriver.ComponentHelper;
 using SeleniumWebdriver.Settings;
 
-namespace SeleniumWebdriver.TestScript.RadioButton
+namespace SeleniumWebdriver.TestScript.ScreenShot
 {
     [TestClass]
-    public class HandleRadioButton
+    public class TakeScreenShots
     {
         [TestMethod]
-        public void TestRadio()
+        public void ScreenShot()
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
             LinkHelper.ClickLink(By.ClassName("login"));
             TextBoxHelper.TypeInTextBox(By.Id("email_create"), ObjectRepository.Config.GetUsername());
             ButtonHelper.ClickButton(By.Id("SubmitCreate"));
-            //IWebElement element = ObjectRepository.Driver.FindElement(By.Id("id_gender1"));
-            //element.Click();
-            Console.WriteLine("Selected : {0}", RadioButtonHelper.IsRadioButtonSelected(By.Id("id_gender1")));
-            RadioButtonHelper.ClickRadioButton(By.Id("id_gender2"));
+            //Screenshot screen = ObjectRepository.Driver.TakeScreenshot();
+            //screen.SaveAsFile("Screenshot.jpeg", ScreenshotImageFormat.Jpeg);
+            GenericHelper.TakeScreenShot();
+            GenericHelper.TakeScreenShot("Test.Jpeg");
         }
     }
 }

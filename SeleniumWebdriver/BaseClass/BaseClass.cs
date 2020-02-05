@@ -8,6 +8,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using OpenQA.Selenium.PhantomJS;
 using SeleniumWebdriver.Configuration;
 using SeleniumWebdriver.CustomException;
 using SeleniumWebdriver.Settings;
@@ -15,7 +16,7 @@ using SeleniumWebdriver.Settings;
 namespace SeleniumWebdriver.BaseClass
 {
     [TestClass]
-    public class BaseClass
+    public static class BaseClass
     {
         private static ChromeOptions GetChromeOptions()
         {
@@ -46,6 +47,12 @@ namespace SeleniumWebdriver.BaseClass
             return driver;
         }
 
+        private static PhantomJSDriver GetPhantomJSDriver()
+        {
+            PhantomJSDriver driver = new PhantomJSDriver();
+            return driver;
+        }
+
         [AssemblyInitialize]
         public static void InitWebdriver(TestContext tc)
         {
@@ -65,9 +72,18 @@ namespace SeleniumWebdriver.BaseClass
                     ObjectRepository.Driver = GetIEDriver();
                     break;
 
+                case BrowserType.PhantomJs:
+                    ObjectRepository.Driver = GetPhantomJsDriver();
+                    break;
+
                 default:
                     throw new NoSutiableDriverFound("Driver not Found"+ ObjectRepository.Config.GetBrowser().ToString());
             }
+        }
+
+        private static IWebDriver GetPhantomJsDriver()
+        {
+            throw new NotImplementedException();
         }
 
         [AssemblyCleanup]

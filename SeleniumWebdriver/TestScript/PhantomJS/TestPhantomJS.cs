@@ -8,20 +8,22 @@ using OpenQA.Selenium;
 using SeleniumWebdriver.ComponentHelper;
 using SeleniumWebdriver.Settings;
 
-namespace SeleniumWebdriver.TestScript.HyperLink
+namespace SeleniumWebdriver.TestScript.PhantomJS
 {
     [TestClass]
-    public class TestHyperLink
+    public class TestPhantomJS
     {
         [TestMethod]
-        public void ClickLink()
+        public void TestPhantonyJDriver()
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
+            GenericHelper.TakeScreenShot();
             LinkHelper.ClickLink(By.ClassName("login"));
-            IWebElement element = ObjectRepository.Driver.FindElement(By.LinkText("Forgot your password?"));
-            element.Click();
-            //LinkHelper.ClickLink(By.LinkText("Forgot your password?"));
-            //LinkHelper.ClickLink(By.PartialLinkText("File"));
+            GenericHelper.TakeScreenShot();
+            TextBoxHelper.TypeInTextBox(By.Id("email_create"), ObjectRepository.Config.GetUsername());
+            GenericHelper.TakeScreenShot();
+            ButtonHelper.ClickButton(By.Id("SubmitCreate"));
+            GenericHelper.TakeScreenShot();
         }
     }
 }

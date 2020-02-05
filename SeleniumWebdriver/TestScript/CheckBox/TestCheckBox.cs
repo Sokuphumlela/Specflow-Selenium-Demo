@@ -17,10 +17,11 @@ namespace SeleniumWebdriver.TestScript.CheckBox
         public void TestBox()
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
-            TextBoxHelper.TypeInTextBox(By.Id("email"), ObjectRepository.Config.GetUsername());
-            TextBoxHelper.TypeInTextBox(By.Id("passwd"), ObjectRepository.Config.GetPassword());
-            TextBoxHelper.ClearTextBox(By.Id("email"));
-              //Check box element
+            LinkHelper.ClickLink(By.ClassName("login"));
+            TextBoxHelper.TypeInTextBox(By.Id("email_create"), ObjectRepository.Config.GetUsername());
+            ButtonHelper.ClickButton(By.Id("SubmitCreate"));
+            TextBoxHelper.ClearTextBox(By.Id("email_create"));
+            //Check box element
             //IWebElement ele = ObjectRepository.Driver.FindElement(By.Id("id_gender2"));
             //ele.Click();
             //Console.WriteLine(CheckBoxHelper.IsCheckBoxChecked(By.Id("id_gender2")));
