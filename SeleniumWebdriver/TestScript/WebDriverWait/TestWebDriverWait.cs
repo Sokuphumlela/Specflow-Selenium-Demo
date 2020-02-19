@@ -18,23 +18,23 @@ namespace SeleniumWebdriver.TestScript.WebDriverWait
         {
             //ObjectRepository.Driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromSeconds(40));
             NavigationHelper.NavigateToUrl("http://automationpractice.com/index.php");
-            //ObjectRepository.Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(50));
+            ObjectRepository.Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(50));
             TextBoxHelper.TypeInTextBox(By.XPath("//*[@id='search_query_top']"),"C#");
         }
-        [TestMethod]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification = "<Pending>")]
-        public void TestDynamicWait()
-        {
-            NavigationHelper.NavigateToUrl("http://automationpractice.com");
-            ObjectRepository.Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(1));
-            WebDriverWait wait = new WebDriverWait(ObjectRepository.Driver, TimeSpan.FromSeconds(50));
-            wait.PollingInterval = TimeSpan.FromMilliseconds(250);
-            wait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotVisibleException));
-            //Console.WriteLine(wait.Until(waitforTitle()));
-            wait.Until(waitforElement()).SendKeys("good");
-            //wait.Until(waitforLastElement()).Click();
-            //Console.WriteLine("Title {0}", wait.Until(waitforpageTitle()));
-        }
+        //[TestMethod]
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification = "<Pending>")]
+        //public void TestDynamicWait()
+        //{
+        //    NavigationHelper.NavigateToUrl("http://automationpractice.com");
+        //    ObjectRepository.Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(1));
+        //    WebDriverWait wait = new WebDriverWait(ObjectRepository.Driver, TimeSpan.FromSeconds(50));
+        //    wait.PollingInterval = TimeSpan.FromMilliseconds(250);
+        //    wait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(ElementNotVisibleException));
+        //    //Console.WriteLine(wait.Until(waitforTitle()));
+        //    wait.Until(waitforElement()).SendKeys("good");
+        //    //wait.Until(waitforLastElement()).Click();
+        //    //Console.WriteLine("Title {0}", wait.Until(waitforpageTitle()));
+        //}
 
         //private Func<IWebDriver, bool> waitforSearchbox() 
         //{
