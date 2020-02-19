@@ -14,5 +14,10 @@ namespace SeleniumWebdriver.ComponentHelper
         {
             ObjectRepository.Driver.Navigate().GoToUrl(Url);
         }
+
+        internal static void NavigateToUrl()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

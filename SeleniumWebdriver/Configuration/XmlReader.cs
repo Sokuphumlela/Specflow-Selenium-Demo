@@ -9,7 +9,19 @@ namespace SeleniumWebdriver.Configuration
 {
     public class XmlReader : IConfig
     {
+        public double GetPageLoadTimeOut => throw new NotImplementedException();
+
         public BrowserType GetBrowser()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetElementLoadTimeOut()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetPageLoadTimeout()
         {
             throw new NotImplementedException();
         }

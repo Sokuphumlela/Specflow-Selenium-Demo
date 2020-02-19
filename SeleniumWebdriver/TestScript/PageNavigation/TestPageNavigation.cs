@@ -17,8 +17,8 @@ namespace SeleniumWebdriver.TestScript.PageNavigation
         public void OpenPage()
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
-            LinkHelper.ClickLink(By.ClassName("login"));
-            Console.WriteLine("Title of page : {0}", WindowHelper.GetTitle());
+            LinkHelper.ClickLink(By.LinkText("Forgotten account?"));
+            //Console.WriteLine("Title of page : {0}", WindowHelper.GetTitle());
         }
     }
 }

@@ -14,17 +14,17 @@ namespace SeleniumWebdriver.ComponentHelper
         public static void ClickRadioButton(By locator)
         {
             element = GenericHelper.GetElement(locator);
-            element.Click();
+            element.Clear();
         }
         public static bool IsRadioButtonSelected(By locator) 
         {
             element = GenericHelper.GetElement(locator);
             string flag = element.GetAttribute("checked");
 
-            if (flag == null)
-                return false;
-            else
-                return flag.Equals("true") || flag.Equals("checked");
+            if (flag == null) { return false;  }
+
+            else { return flag.Equals("true") || flag.Equals("checked"); }
+                
         }
     }
 }

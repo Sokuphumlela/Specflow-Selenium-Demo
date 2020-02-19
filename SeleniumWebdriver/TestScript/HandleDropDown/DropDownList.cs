@@ -15,28 +15,25 @@ namespace SeleniumWebdriver.TestScript.HandleDropDown
     public class DropDownList
     {
         [TestMethod]
-        public void TestList() 
+        public void TestList()
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
-            LinkHelper.ClickLink(By.ClassName("login"));
-            TextBoxHelper.TypeInTextBox(By.Id("email_create"), ObjectRepository.Config.GetUsername());
-            ButtonHelper.ClickButton(By.Id("SubmitCreate"));
-            //IWebElement element = ObjectRepository.Driver.FindElement(By.Id("id_state"));
+            //IWebElement element = ObjectRepository.Driver.FindElement(By.Id("month"));
             //SelectElement select = new SelectElement(element);
-            //select.SelectByIndex(2);
-            //select.SelectByValue("4");
-            //select.SelectByText("California");
+            //select.SelectByIndex(3);
+            //select.SelectByValue("3");
+            //select.SelectByText("Mar");
             //Console.WriteLine("Selected value : {0}", select.SelectedOption.Text);
             //IList<IWebElement> list = select.Options;
-            //foreach (IWebElement ele in list)
+            //foreach(IWebElement ele in list)
             //{
-            //    Console.WriteLine("Value : {0}, Text : {1}", ele.GetAttribute("Value"),ele.Text);
+            //    Console.WriteLine("Value : {0}, Text : {1}",ele.GetAttribute("value"),ele.Text);
             //}
-            ComboBoxHelper.SelectElement(By.Id("id_state"),2);
-            ComboBoxHelper.SelectElement(By.Id("id_state"), "California");
-            foreach (string str in ComboBoxHelper.GetAllItem(By.Id("id_state"))) 
+            ComboBoxHelper.SelectElement(By.Id("month"), 2);
+            ComboBoxHelper.SelectElement(By.Id("month"), "Mar");
+            foreach (string str in ComboBoxHelper.GetAllItem(By.Id("month")))
             {
-                Console.WriteLine("Text : {0}",str);
+                Console.WriteLine("Text : {0}", str);
             }
         }
     }

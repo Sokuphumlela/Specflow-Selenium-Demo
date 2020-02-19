@@ -8,21 +8,21 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.Extensions;
 using SeleniumWebdriver.ComponentHelper;
 using SeleniumWebdriver.Settings;
+using System.Drawing.Imaging;
 
 namespace SeleniumWebdriver.TestScript.ScreenShot
 {
     [TestClass]
     public class TakeScreenShots
     {
+        public object ScreenshotImageFormat { get; private set; }
+
         [TestMethod]
         public void ScreenShot()
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
-            LinkHelper.ClickLink(By.ClassName("login"));
-            TextBoxHelper.TypeInTextBox(By.Id("email_create"), ObjectRepository.Config.GetUsername());
-            ButtonHelper.ClickButton(By.Id("SubmitCreate"));
-            //Screenshot screen = ObjectRepository.Driver.TakeScreenshot();
-            //screen.SaveAsFile("Screenshot.jpeg", ScreenshotImageFormat.Jpeg);
+            Screenshot screen = ObjectRepository.Driver.TakeScreenshot();
+            screen.SaveAsFile("Screenshot.Jpeg", System.Drawing.Imaging.ImageFormat.Jpeg);
             GenericHelper.TakeScreenShot();
             GenericHelper.TakeScreenShot("Test.Jpeg");
         }

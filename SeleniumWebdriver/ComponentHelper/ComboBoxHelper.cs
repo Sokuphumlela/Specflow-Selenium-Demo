@@ -27,10 +27,5 @@ namespace SeleniumWebdriver.ComponentHelper
             select = new SelectElement(GenericHelper.GetElement(locator));
             return select.Options.Select((x) => x.Text).ToList();
         }
-
-        internal static void SelectElement(By by)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

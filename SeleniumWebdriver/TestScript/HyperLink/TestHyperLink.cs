@@ -17,11 +17,8 @@ namespace SeleniumWebdriver.TestScript.HyperLink
         public void ClickLink()
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
-            LinkHelper.ClickLink(By.ClassName("login"));
-            IWebElement element = ObjectRepository.Driver.FindElement(By.LinkText("Forgot your password?"));
+            IWebElement element = ObjectRepository.Driver.FindElement(By.LinkText("Forgotten account?"));
             element.Click();
-            //LinkHelper.ClickLink(By.LinkText("Forgot your password?"));
-            //LinkHelper.ClickLink(By.PartialLinkText("File"));
         }
     }
 }

@@ -72,6 +72,7 @@
     <Compile Include="ComponentHelper\NavigationHelper.cs" />
     <Compile Include="ComponentHelper\RadioButtonHelper.cs" />
     <Compile Include="ComponentHelper\TextBoxHelper.cs" />
+    <Compile Include="ComponentHelper\WebDriverWait.cs" />
     <Compile Include="ComponentHelper\WindowHelper.cs" />
     <Compile Include="Configuration\AppConfigReader.cs" />
     <Compile Include="Configuration\BrowserType.cs" />
@@ -82,13 +83,15 @@
     <Compile Include="Settings\ObjectRepository.cs" />
     <Compile Include="TestScript\Button\HandleButton.cs" />
     <Compile Include="TestScript\CheckBox\TestCheckBox.cs" />
+    <Compile Include="TestScript\DefaultWait\HandleDefaultWait.cs" />
+    <Compile Include="TestScript\FindElements\HandleElements.cs" />
     <Compile Include="TestScript\HandleDropDown\DropDownList.cs" />
     <Compile Include="TestScript\HyperLink\TestHyperLink.cs" />
     <Compile Include="TestScript\PageNavigation\TestPageNavigation.cs" />
-    <Compile Include="TestScript\PhantomJS\TestPhantomJS.cs" />
     <Compile Include="TestScript\RadioButton\HandleRadioButton.cs" />
     <Compile Include="TestScript\ScreenShot\TakeScreenShots.cs" />
     <Compile Include="TestScript\TextBox\TestTextBox.cs" />
+    <Compile Include="TestScript\WebDriverWait\TestWebDriverWait.cs" />
     <Compile Include="TestScript\WebElement\TestWebElement.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,10 +108,6 @@
     <Folder Include="PageObject\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\packages\PhantomJS.2.1.1\tools\phantomjs\phantomjs.exe">
-      <Link>phantomjs.exe</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="phantomjs-license.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

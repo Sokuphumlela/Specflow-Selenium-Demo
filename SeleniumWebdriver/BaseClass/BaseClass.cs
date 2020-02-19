@@ -9,6 +9,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.PhantomJS;
+using SeleniumWebdriver.ComponentHelper;
 using SeleniumWebdriver.Configuration;
 using SeleniumWebdriver.CustomException;
 using SeleniumWebdriver.Settings;
@@ -47,14 +48,9 @@ namespace SeleniumWebdriver.BaseClass
             return driver;
         }
 
-        private static PhantomJSDriver GetPhantomJSDriver()
-        {
-            PhantomJSDriver driver = new PhantomJSDriver();
-            return driver;
-        }
-
+       
         [AssemblyInitialize]
-        public static void InitWebdriver(TestContext tc)
+        public static void IWebdriver(TestContext tc)
         {
             ObjectRepository.Config = new AppConfigReader();
 
@@ -72,18 +68,14 @@ namespace SeleniumWebdriver.BaseClass
                     ObjectRepository.Driver = GetIEDriver();
                     break;
 
-                case BrowserType.PhantomJs:
-                    ObjectRepository.Driver = GetPhantomJsDriver();
-                    break;
-
                 default:
                     throw new NoSutiableDriverFound("Driver not Found"+ ObjectRepository.Config.GetBrowser().ToString());
             }
-        }
-
-        private static IWebDriver GetPhantomJsDriver()
-        {
-            throw new NotImplementedException();
+            NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
+            ObjectRepository.Driver.Manage()
+                .Timeouts()
+                .SetPageLoadTimeout(TimeSpan.FromSeconds(ObjectRepository.Config.GetPageLoadTimeout()));
+            ObjectRepository.Driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(ObjectRepository.Config.GetElementLoadTimeOut()));
         }
 
         [AssemblyCleanup]

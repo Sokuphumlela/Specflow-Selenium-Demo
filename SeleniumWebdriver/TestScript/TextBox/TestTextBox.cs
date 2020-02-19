@@ -17,21 +17,16 @@ namespace SeleniumWebdriver.TestScript.TextBox
         public void TextBox()
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
-            LinkHelper.ClickLink(By.ClassName("login"));
-            TextBoxHelper.TypeInTextBox(By.Id("email_create"), ObjectRepository.Config.GetUsername());
-            ButtonHelper.ClickButton(By.Id("SubmitCreate"));
-            //LinkHelper.ClickLink(By.LinkText(""));
+            LinkHelper.ClickLink(By.LinkText("Forgotten account?"));
             //IWebElement ele = ObjectRepository.Driver.FindElement(By.Id("email"));
             //ele.SendKeys(ObjectRepository.Config.GetUsername());
-            //ele = ObjectRepository.Driver.FindElement(By.Id("passwd"));
+            //ele = ObjectRepository.Driver.FindElement(By.Id("pass"));
             //ele.SendKeys(ObjectRepository.Config.GetPassword());
             //ele = ObjectRepository.Driver.FindElement(By.Id("email"));
             //ele.Clear();
-            TextBoxHelper.TypeInTextBox(By.Id("firstname"), ObjectRepository.Config.GetUsername());
-            TextBoxHelper.TypeInTextBox(By.Id("lastname"), ObjectRepository.Config.GetUsername());
-            TextBoxHelper.TypeInTextBox(By.Id("passwd"), ObjectRepository.Config.GetPassword());
+            TextBoxHelper.TypeInTextBox(By.Id("email"), ObjectRepository.Config.GetUsername());
+            TextBoxHelper.TypeInTextBox(By.Id("pass"), ObjectRepository.Config.GetPassword());
             TextBoxHelper.ClearTextBox(By.Id("email"));
         }
-
     }
 }
